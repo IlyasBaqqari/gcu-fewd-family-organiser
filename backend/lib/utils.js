@@ -3,8 +3,8 @@ const jsonwebtoken = require('jsonwebtoken');
 const fs = require('fs');
 const path = require('path');
 
-const pathToKey = path.join(__dirname, '..', 'id_rsa_priv.pem');
-const PRIV_KEY = fs.readFileSync(pathToKey, 'utf8');
+
+const PRIV_KEY = process.env.RSA_PRIVATE_KEY.replace(/\\n/g, '\n');
 
 /**
  * -------------- HELPER FUNCTIONS ----------------
@@ -23,9 +23,8 @@ function validPassword(password, hash, salt) {
   console.log("password: ", password)
   console.log("hash: ", hash)
   console.log("salt: ", salt)
-    // var hashVerify = crypto.createHmac
-    var hashVerify = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
-    return hash === hashVerify;
+  var hashVerify = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
+  return hash === hashVerify;
 }
 
 /**
@@ -39,13 +38,13 @@ function validPassword(password, hash, salt) {
  * You would then store the hashed password in the database and then re-hash it to verify later (similar to what we do here)
  */
 function genPassword(password) {
-    var salt = crypto.randomBytes(32).toString('hex');
-    var genHash = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
-    
-    return {
-      salt: salt,
-      hash: genHash
-    };
+  var salt = crypto.randomBytes(32).toString('hex');
+  var genHash = crypto.pbkdf2Sync(password, salt, 10000, 64, 'sha512').toString('hex');
+
+  return {
+    salt: salt,
+    hash: genHash
+  };
 }
 
 

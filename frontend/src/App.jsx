@@ -1,8 +1,11 @@
-function App() {
+import { Routes, Route } from 'react-router-dom';
 
+function App() {
   return (
-		<p>App</p>
-  )
+    <Routes>
+      <Route path="/" element={<h1>Family Organiser</h1>} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

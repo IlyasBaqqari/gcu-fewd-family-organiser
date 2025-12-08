@@ -1,10 +1,13 @@
 const nedb = require('gray-nedb');
+const path = require('path');
+
 class FamilyOrganiser {
 
     constructor(dbFilePath) {
         if (dbFilePath) {
-            this.db = new nedb({ filename: dbFilePath, autoload: true });
-            console.log('DB connected to ' + dbFilePath);
+            const resolvedPath = path.resolve(__dirname, '..', dbFilePath);
+            this.db = new nedb({ filename: resolvedPath, autoload: true });
+            console.log('DB connected to ' + resolvedPath);
         } else {
             this.db = new nedb();
             console.log('Events DB connected to database');
@@ -20,8 +23,8 @@ class FamilyOrganiser {
             }
 
             // Insert default event
-             this.db.insert({
-                event: gym,
+            this.db.insert({
+                event: 'gym',
                 date: '2025-09-16',
                 startTime: '16:15',
                 endTime: '17:00',
