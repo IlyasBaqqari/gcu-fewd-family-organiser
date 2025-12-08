@@ -123,8 +123,8 @@ function AddEvent() {
             />
           </div>
 
-          <div className="flex gap-4">
-            <div className="flex flex-col w-1/2">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col w-full md:w-1/2">
               <label
                 htmlFor="startTime"
                 className="text-fo-secondary font-semibold ms-3 mb-1"
@@ -141,7 +141,7 @@ function AddEvent() {
                 className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
               />
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-full md:w-1/2">
               <label
                 htmlFor="endTime"
                 className="text-fo-secondary font-semibold ms-3 mb-1"
@@ -160,7 +160,6 @@ function AddEvent() {
             </div>
           </div>
 
-          {/* Location */}
           <div className="flex flex-col">
             <label
               htmlFor="location"
@@ -180,7 +179,6 @@ function AddEvent() {
             />
           </div>
 
-          {/* Required Items */}
           <div className="flex flex-col">
             <label
               htmlFor="requiredItems"
@@ -199,7 +197,6 @@ function AddEvent() {
             />
           </div>
 
-          {/* Submit Button */}
           <div className="flex justify-center mt-4">
             <button
               type="submit"
