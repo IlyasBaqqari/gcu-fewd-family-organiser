@@ -27,12 +27,6 @@ function Navigation() {
 
         <div className="flex items-center gap-2">
           <Link
-            to="/"
-            className="px-3 py-1.5 rounded-xl text-center text-white focus:outline-fo-dark hover:outline-2 hover:outline-fo-dark focus:bg-fo-secondary-light hover:bg-fo-secondary-light focus:text-fo-black hover:text-fo-black hover:cursor-pointer transition-all"
-          >
-            Home
-          </Link>
-          <Link
             to="/add-event"
             className="px-3 py-1.5 rounded-xl text-center text-white focus:outline-fo-dark hover:outline-2 hover:outline-fo-dark focus:bg-fo-secondary-light hover:bg-fo-secondary-light focus:text-fo-black hover:text-fo-black hover:cursor-pointer transition-all"
           >
