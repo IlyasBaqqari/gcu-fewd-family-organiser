@@ -136,7 +136,7 @@ function EditEvent() {
               placeholder="e.g. Swimming Lesson"
               value={formData.event}
               onChange={handleChange}
-              className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
+              className="w-full bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
             />
           </div>
 
@@ -154,7 +154,7 @@ function EditEvent() {
               required
               value={formData.date}
               onChange={handleChange}
-              className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
+              className="w-full bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
             />
           </div>
 
@@ -173,7 +173,7 @@ function EditEvent() {
                 required
                 value={formData.startTime}
                 onChange={handleChange}
-                className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
+                className="w-full bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
               />
             </div>
             <div className="flex flex-col w-full md:w-1/2">
@@ -190,7 +190,7 @@ function EditEvent() {
                 required
                 value={formData.endTime}
                 onChange={handleChange}
-                className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
+                className="w-full bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
               />
             </div>
           </div>
@@ -210,7 +210,7 @@ function EditEvent() {
               placeholder="e.g. Community Centre"
               value={formData.location}
               onChange={handleChange}
-              className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
+              className="w-full bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
             />
           </div>
 
@@ -228,7 +228,7 @@ function EditEvent() {
               placeholder="e.g. Swimsuit, Towel, Goggles"
               value={formData.requiredItems}
               onChange={handleChange}
-              className="bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
+              className="w-full bg-white px-4 py-3 rounded-2xl border-2 border-fo-secondary text-lg text-fo-black focus:outline-fo-primary transition-all"
             />
           </div>
 
