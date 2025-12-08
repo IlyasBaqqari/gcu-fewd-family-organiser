@@ -10,8 +10,8 @@ A responsive, interactive Single Page Application (SPA) designed to help familie
 - **Responsive Design**: Mobile-friendly interface built with Tailwind CSS.
 
 ## Deployment
-- **Frontend**: Deployed on [Vercel](https://vercel.com) (connected to GitHub).
-- **Backend**: Deployed on [Render](https://render.com) (connected to GitHub).
+- **Frontend**: Deployed on [Vercel](https://gcu-fewd-family-organiser.vercel.app/) (connected to GitHub).
+- **Backend**: Deployed on [Render](https://gcu-fewd-family-organiser.onrender.com/) (connected to GitHub).
 
 ## Project Structure
 - `frontend/`: React application (Vite).
