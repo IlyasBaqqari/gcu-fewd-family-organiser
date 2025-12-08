@@ -1,10 +1,7 @@
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const fs = require('fs');
-const path = require('path');
 
 const db = require('../config/users.js');
-
 
 const PUB_KEY = process.env.RSA_PUBLIC_KEY.replace(/\\n/g, '\n');
 
@@ -20,6 +17,10 @@ module.exports = (passport) => {
   // The JWT payload is passed into the verify callback
   passport.use(new JwtStrategy(options, function (jwt_payload, done) {
     console.log(jwt_payload);
-    return done(null, jwt_payload.user);
+    return done(null, {
+      username: jwt_payload.user,
+      familyId: jwt_payload.familyId,
+      role: jwt_payload.role
+    });
   }));
 }

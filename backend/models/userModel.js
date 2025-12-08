@@ -1,6 +1,4 @@
 const Datastore = require('gray-nedb');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
 
 class userDAO {
     constructor(dbFilePath) {
@@ -23,36 +21,19 @@ class userDAO {
                 return;
             }
 
-            // const defaultAdmins = [
-            //     {
-            //         user: 'Admin1',
-            //         password: '$2b$10$iYSJ.k77iGk4ZiWnbzb60u3GWpM8KmiW1a9vHMMxChjUchJmUbclG',
-            //         role: 'organiser',
-            //         familyId: 'family_1',
-            //     },
-            //     {
-            //         user: 'Admin2',
-            //         password: '$2b$10$iYSJ.k77iGk4ZiWnbzb60u3GWpM8KmiW1a9vHMMxChjUchJmUbclG',
-            //         role: 'administrator',
-            //         familyId: 'family_2',
-            //     }
-            // ];
-            // defaultAdmins.forEach(admin => {
-            //     this.db.update({ user: new RegExp(`^${admin.user}$`, 'i') }, { $set: admin }, { upsert: true }, (err, numUpserted) => {
-            //         if (err) console.log(`Error upserting ${admin.user}:`, err);
-            //         else console.log(`Ensured default admin account: ${admin.user}`);
-            //     });
-            // });
             return this;
         })
     }
 
 
-    create(newUser) {
+    create(newUser, cb) {
         const that = this;
         let entry = newUser
 
-        that.db.insert(entry, (err) => {
+        that.db.insert(entry, (err, newDoc) => {
+            if (cb) {
+                return cb(err, newDoc);
+            }
             if (err) {
                 console.log("Can't insert user: ", newUser.username);
             }
@@ -67,12 +48,11 @@ class userDAO {
         console.log("Looking up user:", user, "in family:", family);
         this.db.find({ $and: [{ username: user, familyId: family }] }, (err, entries) => {
             if (err) {
-                //return cb(null, null);
                 console.log(err)
-                return err
+                return cb(err);
             } else {
                 console.log(entries)
-                if (entries.length == 0) {
+                if (entries.length === 0) {
                     return cb(null, null);
                 }
                 return cb(null, entries[0]);
@@ -85,7 +65,7 @@ class userDAO {
             if (err) {
                 return cb(null, null);
             } else {
-                if (entries.length == 0) {
+                if (entries.length === 0) {
                     return cb(null, null);
                 }
 

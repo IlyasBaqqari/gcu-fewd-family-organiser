@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "keys": "node generateKeypair.js"
+    "keys": "node generateKeypair.js",
+    "seed": "node seed.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

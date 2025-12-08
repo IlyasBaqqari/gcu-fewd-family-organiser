@@ -1,8 +1,5 @@
 const crypto = require('crypto');
 const jsonwebtoken = require('jsonwebtoken');
-const fs = require('fs');
-const path = require('path');
-
 
 const PRIV_KEY = process.env.RSA_PRIVATE_KEY.replace(/\\n/g, '\n');
 
@@ -58,6 +55,9 @@ function issueJWT(user) {
 
   const payload = {
     sub: _id,
+    user: user.username,
+    familyId: user.familyId,
+    role: user.role,
     iat: Date.now()
   };
 

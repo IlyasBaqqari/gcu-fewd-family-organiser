@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+    --color-fo-light: #f7f4f0;
+    --color-fo-lighter: #f7f7f7;
+    --color-fo-dark: #5C5552;
+    --color-fo-black: #433633;
+    --color-fo-primary: #87B800;
+    --color-fo-primary-light: #d9ff00;
+    --color-fo-secondary: #8F857D;
+    --color-fo-secondary-light: #D0CCC8;
+}
+
+body {
+    background-color: #f7f7f7;
+}

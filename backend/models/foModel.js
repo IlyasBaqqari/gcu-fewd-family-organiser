@@ -22,18 +22,7 @@ class FamilyOrganiser {
                 return;
             }
 
-            // Insert default event
-            this.db.insert({
-                event: 'gym',
-                date: '2025-09-16',
-                startTime: '16:15',
-                endTime: '17:00',
-                location: 'Sports Centre',
-                requiredItems: 'sports kit',
-                organiser: 'Admin1',
-                familyId: 'family_1'
-            });
-            console.log('Events database initialized with default events');
+            console.log('Events database initialised.');
         });
     }
 
